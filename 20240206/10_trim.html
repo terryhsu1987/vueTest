@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+  <input v-model.trim="msg">
+    <p>Message with ".trim" is: {{ msg }}</p>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      msg: '   Hellow World!    '
+    } 
+  }
+  
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
