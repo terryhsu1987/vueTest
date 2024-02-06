@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+  <input v-model.lazy="message" placeholder="edit me">
+  <p>Message with ".lazy" : {{ message }}</p>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      message: 'Hello'
+    }
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
