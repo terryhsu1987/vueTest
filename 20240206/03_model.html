@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+  <input v-model="message" placeholder="edit me"><br/>
+    <input :value="message" placeholder="edit me"></input>
+  <p>Message is: {{ message }}</p>
+    <p><span>Multiline message is:</span> {{ message }}</p>
+    <textarea v-model="message" placeholder="add multiple lines"></textarea><br/>
+    <textarea placeholder="add multiple lines">{{message}}</textarea>
+</div>
+   
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+   return {
+      message: 'Hello'
+    } 
+  }
+});
+
+vm.mount('#app');
+</script>
+  
+  </body>
+</html>
