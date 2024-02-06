@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+  <input type="text" v-model="msg">
+  <div v-once>{{msg}}</div>
+  <div v-text="msg">DDDDDD</div>
+  <div>{{msg}}DDDDDD</div>
+  <div v-html="msg">DDDDDD</div>
+    <div v-pre>{{msg}}</div>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+  msg: '<h1>Hello World!</h1>'
+    } 
+  }
+  
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
