@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+  <!-- 要注意下面兩組 input 對應的都是 v-model="picked"  -->
+  <div>
+    <input type="radio" id="one" value="1" v-model="picked">
+    <label for="one">One</label>
+  </div>
+  <div>
+    <input type="radio" id="two" value="2" v-model="picked">
+    <label for="two">Two</label>
+  </div>
+
+  <span>Picked: {{ picked }}</span><br/>
+  <input v-model="picked" placeholder="edit me">
+</div>
+   
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      picked: 1
+    }
+  }
+}).mount('#app');
+  
+</script>
+  
+  </body>
+</html>
