@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+  <input type="text" v-model="name">
+</div>
+
+<!-- vm2 -->
+<div id="app2">
+  <input type="text" v-model="name">
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const dataObj = {
+  name: '008JS'
+};
+
+const vm1 = Vue.createApp({
+  data () {
+    return dataObj
+  },
+}).mount('#app');
+
+const vm2 = Vue.createApp({
+  data () {
+    return dataObj
+  },
+}).mount('#app2');
+</script>
+  </body>
+</html>

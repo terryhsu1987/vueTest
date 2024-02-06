@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+PRICE:<input type="text" v-model="price"><br/>
+QUANTITY:<input type="text" v-model="quantity">
+  
+  <p> 總金額共 {{ subtotal(1) }} 元 </p>
+  <!-- ... 中間略 ... -->
+  <p> 總金額共 {{ subtotal(2) }} 元 </p>
+  <!-- ... 中間略 ... -->
+  <p> 總金額共 {{ subtotal(3) }} 元 </p>
+
+</div>
+
+<!-- vm2 -->
+<div id="app2">
+  
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      price: 100,
+      quantity: 10
+    }
+  },
+  methods: {
+    subtotal(n) {
+  	  console.log('test1, ');
+      return this.subtotal0 * n;
+    }
+  },
+  computed: {
+    subtotal0: function() {
+      console.log('test0, ');
+      return this.price * this.quantity;
+    }
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>

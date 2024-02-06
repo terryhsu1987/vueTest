@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+ <body>
+<div id="app">
+<p v-bind:id="customId">ID</p>
+<p :name="customId">NAME</p>
+<button v-bind:disabled="isBtnDisabled">click me!</button>
+<button :disabled="isBtnDisabled">click me!!!</button>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      customId: 'item-id-1',
+  	  isBtnDisabled: true
+    }
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>

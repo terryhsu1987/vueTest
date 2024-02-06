@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+ <body>
+
+
+<!-- vm2 -->
+<div id="app">
+  <p>1 日幣 = 0.278 台幣</p>
+  <p>1 USD = 28.54 台幣</p>
+  <div>台幣 <input type="text" v-model="twd"></div>
+  <div>日幣 <input type="text" v-model="jpy"></div>
+  <div>USD <input type="text" v-model="usd"></div>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      twd: 100,
+  	  jpyRate:0.278,
+  	  usdRate:28.54
+    } 
+  },
+  computed: {
+    jpy: {
+      get () {
+        return this.getCur(this.jpyRate);
+      },
+      set (val) {
+  		this.setCur(val,this.jpyRate);
+      }
+    },
+    usd: {
+      get () {
+  		return this.getCur(this.usdRate);
+      },
+      set (val) {
+  		this.setCur(val,this.usdRate);
+      }
+    }
+  },
+  methods:{
+  	getCur(rate){
+  		return Number.parseFloat(Number(this.twd) / rate).toFixed(3);
+  	},
+  	setCur(val,rate){
+  		this.twd = Number.parseFloat(Number(val) * rate).toFixed(3);
+  	}
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>

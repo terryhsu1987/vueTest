@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+ <body>
+
+
+<div id="app">
+  單價: {{ price }}, 
+  數量: {{ quantity }}, 
+  總金額共 {{ price * quantity }} 元
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+
+const vm = Vue.createApp({
+  data () {
+    return {
+      price: 100,
+      quantity: 10
+    }
+  }
+});
+vm.mount('#app');
+</script>
+   
+  </body>
+</html>
