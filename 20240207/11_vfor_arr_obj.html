@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+
+    </style>
+  </head>
+ <body>
+
+<div id="app">
+  <ul>
+    <li v-for="(item, index) in arr">{{index}}/{{ item }}</li>
+  </ul>
+  <ul>
+    <li v-for="(val, key, index) in book">{{index}}/{{key}}/{{ val}}</li>
+  </ul>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      arr: ['008', 'JS', 'is', 'awesome'],
+      book: {
+        title: '08js',
+        author:  'Kuro',
+        publishedAt: '2019/09'
+      }
+    } 
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
