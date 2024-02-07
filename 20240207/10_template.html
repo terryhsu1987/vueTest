@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+
+    </style>
+  </head>
+ <body>
+<div id="app">
+  <input v-model="value">
+  <!-- value === 'A' 時出現 -->
+<template v-if="value === 'A'">
+  <h1>Title A</h1>
+  <p>Paragraph A - 1</p>
+  <p>Paragraph A - 2</p>
+</template>
+
+<!-- value 不為 A 時出現 -->
+<template v-else>
+  <h1>Title B</h1>
+  <p>Paragraph B - 1</p>
+  <p>Paragraph B - 2</p>
+</template>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data: () => {
+    return {
+      value: 'A'
+    }
+  },
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
