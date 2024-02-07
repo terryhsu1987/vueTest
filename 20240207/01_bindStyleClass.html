@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+ <head>
+  <style>
+    .error{ border: red solid 1px; color: red;}
+  </style>
+ </head>
+ <body>
+
+<div id="app">
+  <input type="text" v-model.trim="message" placeholder="請勿超過十個字" :style="msgStyle"><br/>
+  <input type="text" v-model.trim="message2" placeholder="請勿超過3個字" :class="msg2Style">
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data () {
+    return {
+      message: '',
+  	  message2: '',
+    } 
+  },
+  computed: {
+    isVaild: function() {
+      return this.message.length <= 10;
+    },
+    isVaild2: function() {
+      return this.message2.length <= 3;
+    },
+    msgStyle: function() {
+      return {
+        'border': this.isVaild ? '' : 'red solid 1px',
+        'color': this.isVaild ? '' : 'red'
+      };
+    },
+    msg2Style: function() {
+      return this.isVaild2 ? '' : 'error';
+    }
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
