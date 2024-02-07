@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+ <body>
+
+<div id="app">
+<p><input v-model.number="amount"></p>
+<p>Count: {{ count }}</p>
+
+<button v-on:click="plus(amount, $event)">Plus{{amount}}</button>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data(){
+  	return { amount:0, count:1}},
+  methods:{
+   plus(amount, event) {
+    var x = amount + this.count;
+    this.amount = this.count;
+    this.count = x;
+    console.log(event);
+  console.log(event.target);
+  console.log(event.target.tagName);
+   }
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
