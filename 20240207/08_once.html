@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+#app {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+p{
+  margin: 1rem 0;
+}
+    </style>
+  </head>
+ <body>
+<div id="app">
+  <p>Count: {{ count }}</p>
+  <button @click.once="plus">Plus Once1</button>
+  <button @click.once="plus">Plus Once2</button>
+  <button @click="plus">Plus Once3</button>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data: () => {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    plus: function() {
+      this.count++;
+    }
+  }
+}).mount('#app');
+  
+</script>
+  
+  </body>
+</html>
