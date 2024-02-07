@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+  padding: 1rem;
+}
+
+.p {
+  margin-bottom: 1rem;
+  padding: 10px;
+  background-color: yellow;
+  div {
+  	margin-bottom: 5px;
+  }
+}
+
+.app {
+  overflow: hidden;
+}
+
+.wrap {
+  float: left;
+  margin-right: 3rem;
+  margin-bottom: 2rem;
+}
+
+.outer {
+  cursor: pointer;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  padding: 25px;
+  background-color: #ccc;
+  text-align: center;
+  margin-top: 1rem;
+  &:hover{
+    background-color: darken(#ccc, 10%);
+  }
+}
+
+.inner {
+  cursor: pointer;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  margin-left: -45px;
+  margin-top: -55px;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  line-height: 70px;
+  background-color: #f00;
+  color: #fff;
+  &:hover{
+    background-color: darken(#f00, 10%);
+  }
+}
+    </style>
+  </head>
+ <body>
+
+<div id="app">
+  <div class="p" v-show="msg.length > 0">
+    <div v-for="m in msg">{{ m }}</div>
+  </div>
+ 
+  <div class="wrap">
+    click without stopPropagation
+    <div class="outer" @click.capture="alert('Outer')">
+      <span>Outer</span>
+      <div class="inner" @click.capture="alert('Inner')">Inner
+      <a href="#" class="btn" @click.prevent="alert('Hello!')">click me!</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    click with stopPropagation
+    <div class="outer" @click="alert('Outer')">
+      <span>Outer</span>
+      <div class="inner" @click.stop="alert('Inner')">Inner
+      <a href="#" class="btn" @click.stop.prevent="alert('Hello!')">click me!</a>
+      </div>
+    </div>
+  </div>
+  
+  <a href="#" class="btn" @click.prevent="alert('Hello!')">click me!</a>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+	data(){
+  	return {
+      msg: []
+    }
+  },
+  methods: {
+    alert(val){
+			this.msg.push(val);
+
+      window.setTimeout(() => {
+        this.msg = [];
+      }, 3000);
+    }
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
