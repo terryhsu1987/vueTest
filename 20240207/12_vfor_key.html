@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+
+    </style>
+  </head>
+ <body>
+
+<div id="app">
+  <div class="wrap">
+    <div class="todo-lists">
+      <h3>Todo List</h3>
+      <ul>
+        <li v-for="(i, index) in todoLists" :key="i.id">
+          <label><input v-model="i.isDone" type="checkbox"> {{ i.title }}/{{index}}</label>
+        </li>
+      </ul>
+    </div>
+
+    <div class="done-lists">
+      <h3>Done List</h3>
+      <ul>
+        <li v-for="(i, index) in doneLists" :key="i.id">
+          <label><input v-model="i.isDone" type="checkbox"> {{ i.title }}/{{index}}</label>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data() {
+    return {
+      lists: [{
+          id: 'task001',
+          title: '選項 1',
+          isDone: false
+        },
+        {
+          id: 'task002',
+          title: '選項 2',
+          isDone: false
+        },
+        {
+          id: 'task003',
+          title: '選項 3',
+          isDone: false
+        },
+      ]
+    }
+  },
+  computed: {
+    todoLists() {
+      return this.lists.filter(d => !d.isDone)
+    },
+    doneLists() {
+      return this.lists.filter(d => d.isDone)
+    },
+  }
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
