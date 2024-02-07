@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+
+    </style>
+  </head>
+ <body>
+<div id="app">
+  <label>
+    <input type="checkbox" v-model="isShow"> isShow: {{ isShow }}
+  </label>
+
+  <div class="wrap">
+    <div v-if="isShow"> V-if </div>
+    <div v-else> V-else </div>
+    <div v-show="isShow"> V-show </div>
+  </div>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const vm = Vue.createApp({
+  data: () => {
+    return {
+      isShow: true
+    }
+  },
+}).mount('#app');
+</script>
+  
+  </body>
+</html>
