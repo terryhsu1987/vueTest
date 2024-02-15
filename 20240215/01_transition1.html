@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+ <head>
+  <style>
+#app {
+  position: relative;
+  display: block;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+button {
+  font-size: 1rem;
+}
+
+.block {
+  display: block;
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  background-color: #0f0;
+  
+}
+
+.a-enter-active, .a-leave-active {
+  transition: opacity 1s;
+}
+
+.a-enter-from, .a-leave-to {
+  opacity: 0;
+}
+
+.a-enter-to, .a-leave-from {
+  opacity: 1;
+}
+  </style>
+ </head>
+ <body>
+
+<div id="app">
+  <div style="height: 120px;">
+    <transition name="a">
+      <!-- 這裡透過 v-show 來控制顯示或隱藏 -->
+      <div class="block" v-show="isShow">HELLO VUE1</div>
+    </transition>
+  </div>
+  
+  <button @click="isShow =! isShow">Toggle</button>
+</div>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script>
+const app = Vue.createApp({
+  data() {
+    return {
+      isShow: true
+    }
+  }
+});
+
+app.mount('#app');
+</script>
+  
+  </body>
+</html>
